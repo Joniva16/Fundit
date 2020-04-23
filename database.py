@@ -21,7 +21,7 @@ c = conn.cursor()
 #			email text
 #			)""")
 
-def insert_user(user):
+def Insert_user(user):
 	with conn:
 		c.execute("INSERT INTO users VALUES (?,?,?,?)",(user.name,user.password,user.capital,user.email))
 
@@ -30,8 +30,10 @@ user = User_info("Grave","124",10000,"grave@gmail.com")
 
 
 
-c.execute("SELECT * FROM users WHERE password='124'")
-print(c.fetchone())
+#c.execute("SELECT * FROM users WHERE password='124'")
+#print(c.fetchone())
+
+
 
 
 
