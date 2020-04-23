@@ -9,7 +9,6 @@ import pandas as pd
 def fetchsp(sticker):
 	bstock = yf.Ticker(sticker)
 	bstockh = bstock.history(period="1d")
-	print(bstockh)
 	bstockp = float(bstockh.iat[0,1])
 	print(bstockp)
 
