@@ -14,7 +14,7 @@ c = conn.cursor()
 
 
 
-def insert_user(name,password,capital,email):
+def insert_user(user):
 	with conn:
 		c.execute("INSERT INTO users VALUES (name,password,capital,email)")
 
