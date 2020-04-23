@@ -1,1 +1,1 @@
-print("Hello World")
+from stockprice import fetchsp

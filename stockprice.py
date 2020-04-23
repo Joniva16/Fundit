@@ -6,10 +6,10 @@ import pandas as pd
 #bstockh is a reference to the bought stock's history
 #bstockp is a reference to the bought stock's price
 
-def fetch(sticker):
+def fetchsp(sticker):
 	bstock = yf.Ticker(sticker)
 	bstockh = bstock.history(period="1d")
 	bstockp = float(bstockh.iat[0,1])
 	print(bstockp)
 
-# use fetch("stock_ticker")  to get price of stock
+# use fetchsp("stock_ticker")  to get price of stock
