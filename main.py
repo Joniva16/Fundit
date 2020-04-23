@@ -1,19 +1,16 @@
-from stockprice import fetchsp
-<<<<<<< HEAD
-#im-in
-=======
-import
+#USER INFORMATION STORED
 
-user_list_info = {name:'', password:'', capital:'', email:''}
+user_dict_info = {}
 
-class User_info(object):
-    def User_info(self, name, password, capital, email):
-    #function to determine main char of a user
-        self.name = n
-        self.email = e
-        self.capital = c
-        self.password = p
-    #add value to the keys
+class User_info():
 
+    def __init__(self, n, p, c, e):
 
->>>>>>> 8c654ef4cea6437c47e847691914ee9d8002c564
+    #function to determine main char. of a user
+
+        self.n = user_list_info['Name']
+        self.e = user_list_info['Email']
+        self.c = user_list_info['Capital']
+        self.p = user_list_info['Password']
+
+User_info(farzin, f, 2, 34)
