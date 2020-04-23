@@ -1,16 +1,36 @@
 #USER INFORMATION STORED
+import yfinance as yf
+import pandas as pd
+def fetchsp(sticker):
+	bstock = yf.Ticker(sticker)
+	bstockh = bstock.history(period="1d")
+	bstockp = float(bstockh.iat[0,1])
+	print(bstockp)
 
-user_dict_info = {}
+user = []
 
-class User_info():
+active = True
 
-    def __init__(self, n, p, c, e):
+while active:
+    print("Welcome to Fundit! The world's best trading academy!")
 
-    #function to determine main char. of a user
+    name = input("\nWhat is your username?")
 
-        self.n = user_list_info['Name']
-        self.e = user_list_info['Email']
-        self.c = user_list_info['Capital']
-        self.p = user_list_info['Password']
+    email = input("\nWhat is your email?")
 
-User_info(farzin, f, 2, 34)
+    capital = input("\nWe are almost there! Think about all the investments you are about to make! What  amount are you willing to invest?")
+
+    password = input("\nNow it's time to secure that capital! Enter a password for your Fundit account.")
+
+    user = name
+    user.append(name)
+    user.append(email)
+    user.append(capital)
+    user.append(password)
+    stocks = []
+    stock = input('What other stocks are you currently interested to purschase?')
+    fetchsp(stock)
+    buy = input('Would you like to buy this stock?')
+    if buy == 'Yes':
+        stocks.append(stock)
+    stock = input('What other stocks are you currently interested to purschase?')
