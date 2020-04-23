@@ -27,10 +27,17 @@ while active:
     user.append(email)
     user.append(capital)
     user.append(password)
+
     stocks = []
-    stock = input('What other stocks are you currently interested to purschase?')
+
+    stock = input('What stocks are you currently interested to purschase?')
+
     fetchsp(stock)
+
     buy = input('Would you like to buy this stock?')
+
     if buy == 'Yes':
+
         stocks.append(stock)
+
     stock = input('What other stocks are you currently interested to purschase?')
