@@ -3,7 +3,7 @@ import yfinance as yf
 
 import pandas as pd
 
-from database import Insert_user
+
 
 def fetchsp(sticker):
 	bstock = yf.Ticker(sticker)
@@ -35,6 +35,7 @@ while active:
     password = input("\nNow it's time to secure that capital! Enter a password for your Fundit account.\n")
 
     user = User_info(name, password, capital, email)
+    from database import Insert_user
     Insert_user(user)
 
     stocks = []
