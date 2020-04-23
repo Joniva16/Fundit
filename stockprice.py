@@ -12,3 +12,4 @@ def fetchsp(sticker):
 	bstockp = float(bstockh.iat[0,1])
 	print(bstockp)
 
+# use fetchsp("stock_ticker")  to get price of stock
