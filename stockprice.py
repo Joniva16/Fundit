@@ -12,4 +12,4 @@ def fetch(sticker):
 	bstockp = float(bstockh.iat[0,1])
 	print(bstockp)
 
-fetch("TSLA")
+# use fetch("stock_ticker")  to get price of stock
