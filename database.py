@@ -10,9 +10,9 @@ class User_info:
 		self.capital = capital
 		self.email = email
 
-#conn = sqlite3.connect("users.db")
+conn = sqlite3.connect("users.db")
 
-#c = conn.cursor()
+c = conn.cursor()
 
 #c.execute("""CREATE TABLE users (
 #			name text,
@@ -25,10 +25,8 @@ def Insert_user(user):
 	with conn:
 		c.execute("INSERT INTO users VALUES (?,?,?,?)",(user.name,user.password,user.capital,user.email))
 
-#user = User_info("Grave","124",10000,"grave@gmail.com")
 
-
-
+#user = User_info("Grave","124",10000,"grave@gmail.com"
 
 #c.execute("SELECT * FROM users WHERE password='124'")
 #print(c.fetchone())
@@ -38,9 +36,9 @@ def Insert_user(user):
 
 
 
-#conn.commit()
+conn.commit()
 
-#conn.close()
+conn.close()
 
 
 #WORK BELOW THIS 
