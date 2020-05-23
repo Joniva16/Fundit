@@ -1,10 +1,13 @@
 from tkinter import *
 from PIL import Image, ImageTk
+from datastorage import Insert_user
+import sqlite3
+
+conn = sqlite3.connect("users.db")
+
+c = conn.cursor()
 
 def credentials():
-
-	def adduser():
-		print("A new user has been registered")
 
 	global font
 
@@ -58,8 +61,43 @@ def credentials():
 	entry_password = Entry(frame_entry2,bg="white",width=20,font=("Helvetica", 15),fg="black")
 	entry_password.pack()
 
+	frame_avail_name= Frame(log,width=500, height=500, bg="white")
+	frame_avail_name.place(x=60,y=300)
+
+	avail_response_name = Label(frame_avail_name,text="",bg="white",fg="black",font=("Helvetica", 15))
+	avail_response_name.pack()
+
+	frame_avail_pass= Frame(log,width=500, height=500, bg="white")
+	frame_avail_pass.place(x=60,y=400)
+
+	avail_response_pass = Label(frame_avail_pass,text="",bg="white",fg="black",font=("Helvetica", 15))
+	avail_response_pass.pack()
+
+	def adduser():
+		username = str(entry_username.get())
+		password = str(entry_password.get())
+
+		if password == "":
+			avail_response_pass.configure(text="Please enter a password",fg="Red")
+		else:
+
+			try:
+				avail_response_pass.configure(text="",fg="Red")
+				c.execute(f"SELECT * FROM users WHERE name='{username}'")
+				username_avail = c.fetchone()[0]
+				print("This username has already been taken")
+				avail_response_name.configure(text="This username has already been taken",fg="Red")
+
+
+			except TypeError:
+				avail_response_pass.configure(text="",fg="Red")
+				print("This username is available")
+				avail_response_name.configure(text="This username is available",fg="Green")
+
 	frame_button_entry= Frame(log,width=500, height=50, bg="white")
 	frame_button_entry.place(x=165,y=450)
+
+
 
 	entry_button_register = Button(frame_button_entry,bg="#9acc56",text="Register",font=("Helvetica", 15),command=adduser)
 	entry_button_register.pack(side=LEFT)
@@ -73,5 +111,8 @@ def credentials():
 	log.mainloop()
 
 
-
 credentials()
+
+conn.commit()
+
+conn.close()
