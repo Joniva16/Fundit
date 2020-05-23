@@ -21,13 +21,15 @@ c = conn.cursor()
 #			email text
 #			)""")
 
+#This function will allow you to insert a user in the following fashion
+#user = User_info("Grave","124",10000,"grave@gmail.com"
 def Insert_user(user):
 	with conn:
 		c.execute("INSERT INTO users VALUES (?,?,?,?)",(user.name,user.password,user.capital,user.email))
 
 
-#user = User_info("Grave","124",10000,"grave@gmail.com"
-
+#THis function will allow you to search for users in the databse according to
+#Parameters like password or name
 #c.execute("SELECT * FROM users WHERE password='124'")
 #print(c.fetchone())
 
